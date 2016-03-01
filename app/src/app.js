@@ -5,8 +5,7 @@ const App = React.createClass({
   render() {
     return (
       <div>
-        <h1>MyApp</h1>
-        <Link to='/newGame'>New Game</Link>
+        <h1 className='centered'>Eleet Mud</h1>
         {this.props.children}
       </div>
     );

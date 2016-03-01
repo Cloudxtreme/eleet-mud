@@ -28,10 +28,12 @@ gulp.task('webpack', function(done) {
     plugins: webpackConfig.plugins
   }, function(err, stats) {
     if(err) throw new gutil.PluginError("webpack", err);
-    //gutil.log("[webpack]", stats.toString({}));
+    gutil.log("[webpack]", stats.toString({}));
     done();
   });
 });
 
 gulp.task('build', ['webpack']);
 gulp.task('dev', plugins.shell.task(['webpack-dev-server --content-base public/ --inline']));
+
+gulp.task('default', ['build', 'sass']);

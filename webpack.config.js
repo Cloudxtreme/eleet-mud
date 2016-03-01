@@ -10,7 +10,7 @@ module.exports = {
   output: {
     path: './public',
     filename: 'app' + webpackExtension + '.js',
-    publicPath: 'http://localhost:8081/'
+    publicPath: '/'
   },
   devServer: {
     inline: true,
