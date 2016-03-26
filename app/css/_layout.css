@@ -1,3 +1,8 @@
 div.centered {
   margin: 0 auto;
 }
+
+[data-role=game-window] {
+  width: 80%;
+  height: 80%;
+}

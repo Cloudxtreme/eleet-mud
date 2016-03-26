@@ -1,3 +1,5 @@
+import { Router } from 'react-router';
+
 import AppDispatcher from '../appDispatcher';
 import Constants from '../constants';
 
@@ -8,6 +10,13 @@ let PlayerActions = {
       actionType: Constants.ACTIONS.PLAYER.SET_NAME,
       name: name
     });
+  },
+
+  setClass (classType) {
+    AppDispatcher.dispatch({
+
+    });
+
   }
 
 };

@@ -7,6 +7,9 @@ import Constants from '../constants';
 let name;
 let setName = (n) => name = n;
 
+let playerClass;
+let setClass = (c) => playerClass = c;
+
 let CHANGE_EVENT = 'change';
 
 let PlayerStore = _.extend({}, EventEmitter.prototype, {
@@ -24,13 +27,17 @@ let PlayerStore = _.extend({}, EventEmitter.prototype, {
   },
 
   getName: () => name,
+  getClass: () => playerClass,
 
   dispatcherCb: function (action) {
     switch(action.actionType) {
       case Constants.ACTIONS.PLAYER.SET_NAME:
         setName(action.name);
         PlayerStore.emitChange();
-        console.log('action set name hit in store');
+        break;
+      case Constants.ACTIONS.PLAYER.SET_CLASS:
+        setClass(action.playerClass);
+        PlayerStore.emitChange();
         break;
     }
   }

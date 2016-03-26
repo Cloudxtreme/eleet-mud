@@ -1,24 +1,42 @@
 @import "./colors";
 
-body, div, span, h1, h2, h3, p {
-  color: $smoke;
+@import "./themes/dust";
+
+body {
+  &.gray {
+    div, span, h1, h2, h3, p {
+      color: $smoke;
+    }
+  }
+
+  &.dust {
+    color: $dust-smoke;
+  }
+
+  a {
+    color: $pale_pink;
+
+    &, &:visited {
+      transition: 1s;
+      -webkit-transition: 1s;
+    }
+  }
+
+  &.gray {
+    a[data-active], a:hover {
+      color: $white;
+    }
+  }
+
+  &.dust {
+    a[data-active], a:hover {
+      color: $dust-white;
+    }
+  }
 }
 
 h1, h2, h3, p {
   &.centered {
     text-align: center;
-  }
-}
-
-a {
-  color: $pale_pink;
-
-  &, &:visited {
-    transition: 1s;
-    -webkit-transition: 1s;
-  }
-
-  &[data-active], &:hover {
-    color: $white;
   }
 }

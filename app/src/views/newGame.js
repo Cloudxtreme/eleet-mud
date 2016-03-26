@@ -5,6 +5,9 @@ import PlayerActions from '../actions/playerActions';
 import PlayerStore from '../stores/playerStore'; // TODO, not needed?
 
 const NewGame = React.createClass({
+  componentDidMount() {
+  },
+
   getInitialState() {
     return {
       step: Constants.NEW_GAME_STEPS.NAME,
@@ -17,9 +20,15 @@ const NewGame = React.createClass({
     this.setState({ name: e.target.value });
   },
 
-  onOkClick() {
+  onNameOkClick() {
     PlayerActions.setName(this.state.name);
     this.setState({ step: Constants.NEW_GAME_STEPS.PLAYER_CLASS });
+  },
+
+  onClassClick(e) {
+    var selectedClass = $(e.target).data('class');
+    PlayerActions.setClass(selectedClass);
+    this.props.history.push('play');
   },
 
   render() {
@@ -28,16 +37,18 @@ const NewGame = React.createClass({
         <p>What is your name?</p>
         <input type='text' value={ this.state.name } onChange={ this.onNameInputChange } />
 
-        <button onClick={ this.onOkClick }>Ok</button>
+        <div>
+          <button onClick={ this.onNameOkClick }>Ok</button>
+        </div>
       </div>
     );
 
     let classStep = (
       <div>
-        <p>What is your profession?</p>
-        <p>a</p>
-        <p>b</p>
-        <p>c</p>
+        <p>Choose a profession.</p>
+        <button onClick={ this.onClassClick } data-class='a'>a</button>
+        <button onClick={ this.onClassClick } data-class='b'>b</button>
+        <button onClick={ this.onClassClick } data-class='c'>c</button>
       </div>
     );
 

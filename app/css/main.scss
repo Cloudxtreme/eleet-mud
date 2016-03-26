@@ -2,6 +2,12 @@
 @import "./layout";
 @import "./typography";
 
+@import "./themes/dust";
+
 body {
   background: $pitch;
+}
+
+body.dust {
+  background: $dust-pitch;
 }
