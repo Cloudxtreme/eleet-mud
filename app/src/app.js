@@ -5,7 +5,7 @@ const App = React.createClass({
   render() {
     return (
       <div>
-        <h1 className='centered'>Eleet Mud</h1>
+        <h1 className='app-title centered'>Eleet Mud</h1>
         {this.props.children}
       </div>
     );

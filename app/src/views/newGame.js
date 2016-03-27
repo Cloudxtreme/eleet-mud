@@ -2,60 +2,52 @@ let React = require('react');
 
 import Constants from '../constants';
 import PlayerActions from '../actions/playerActions';
-import PlayerStore from '../stores/playerStore'; // TODO, not needed?
+
+import NameStep from './newGame/nameStep';
+import ClassStep from './newGame/classStep';
+
+// index keyed object to store the steps in the new character creation process
+let stepMap = undefined;
+let getStepMap = () => {
+  if (stepMap !== undefined) return stepMap;
+
+  let steps = [NameStep, ClassStep];
+  stepMap = steps.reduce((memo, step, i) =>{
+    memo[i] = step;
+    return memo;
+  }, {});
+
+  return stepMap;
+}
 
 const NewGame = React.createClass({
-  componentDidMount() {
+  componentDidMount () {
+  },
+
+  onStepCompleted () {
+    // TODO, if completed last step then enter playable game
+    this.setState({ currentStep: this.state.currentStep + 1 });
   },
 
   getInitialState() {
     return {
-      step: Constants.NEW_GAME_STEPS.NAME,
-      name: '',
-      playerClass: ''
+      currentStep: 0
     };
   },
 
-  onNameInputChange(e) {
-    this.setState({ name: e.target.value });
-  },
-
-  onNameOkClick() {
-    PlayerActions.setName(this.state.name);
-    this.setState({ step: Constants.NEW_GAME_STEPS.PLAYER_CLASS });
-  },
-
-  onClassClick(e) {
-    var selectedClass = $(e.target).data('class');
-    PlayerActions.setClass(selectedClass);
-    this.props.history.push('play');
-  },
-
   render() {
-    let nameStep = (
-      <div>
-        <p>What is your name?</p>
-        <input type='text' value={ this.state.name } onChange={ this.onNameInputChange } />
-
-        <div>
-          <button onClick={ this.onNameOkClick }>Ok</button>
-        </div>
-      </div>
-    );
-
-    let classStep = (
-      <div>
-        <p>Choose a profession.</p>
-        <button onClick={ this.onClassClick } data-class='a'>a</button>
-        <button onClick={ this.onClassClick } data-class='b'>b</button>
-        <button onClick={ this.onClassClick } data-class='c'>c</button>
-      </div>
-    );
+    let StepCmp = getStepMap()[this.state.currentStep];
 
     return (
-      <div>
-        <p>Welcome, wanderer.</p>
-        { this.state.step == Constants.NEW_GAME_STEPS.NAME ? nameStep : classStep }
+      <div className="container">
+        <div className="row">
+          <p>Welcome, wanderer.</p>
+        </div>
+
+        <div className="row">
+          { <StepCmp onSubmit={ this.onStepCompleted }/> }
+        </div>
+
       </div>
     );
   }

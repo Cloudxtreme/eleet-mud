@@ -9,14 +9,14 @@ const Splash = React.createClass({
 
   render() {
     return (
-      <div className='centered'>
-        <div>
+      <div className='container'>
+        <div className='row'>
           <Link to='/newGame' onMouseOver={ this.onLinkMouseOver }>New Game</Link>
         </div>
-        <div>
+        <div className='row'>
           <Link to='/continue' onMouseOver={ this.onLinkMouseOver }>Continue</Link>
         </div>
-        <div>
+        <div className='row'>
           <Link to='/options' onMouseOver={ this.onLinkMouseOver }>Options</Link>
         </div>
       </div>
