@@ -27,5 +27,5 @@ $(document).ready(function(){
         <Route path="play" component={Game} />
       </Route>
     </Router>
-  ), $('[data-role="main-app-container"]').get(0));
+  ), $('[data-role=main-app-container]').get(0));
 });

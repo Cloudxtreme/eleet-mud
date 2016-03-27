@@ -1,42 +1,38 @@
-@import "./colors";
-
-@import "./themes/dust";
+@import "./themes";
 
 body {
-  &.gray {
-    div, span, h1, h2, h3, p {
-      color: $smoke;
-    }
-  }
+  @each $theme in $theme-names {
+    &.#{ $theme } {
+      div, span, h1, h2, h3, p {
+        color: #eee;
+      }
 
-  &.dust {
-    color: $dust-smoke;
+      a {
+        color: map-get($theme-map, "themes-#{ $theme }-accent");
+
+        &[data-active], &:hover {
+          color: lighten(map-get($theme-map, "themes-#{ $theme }-accent"), 20%);
+        }
+      }
+    }
   }
 
   a {
-    color: $pale_pink;
-
-    &, &:visited {
-      transition: 1s;
-      -webkit-transition: 1s;
-    }
+    transition: 1s;
+    -webkit-transition: 1s;
   }
 
-  &.gray {
-    a[data-active], a:hover {
-      color: $white;
-    }
+  h1, h2, h3 {
+    font-family: cursive;
   }
 
-  &.dust {
-    a[data-active], a:hover {
-      color: $dust-white;
-    }
+  p {
+    font-family: fantasy;
   }
-}
 
-h1, h2, h3, p {
-  &.centered {
-    text-align: center;
+  h1, h2, h3, p {
+    &.centered {
+      text-align: center;
+    }
   }
 }
