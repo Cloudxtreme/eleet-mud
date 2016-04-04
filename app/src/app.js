@@ -30,7 +30,9 @@ const App = React.createClass({
           </Link>
           <MenuBar />
         </div>
-        {this.props.children}
+        <div className="app-body-container">
+          {this.props.children}
+        </div>
       </div>
     );
   }

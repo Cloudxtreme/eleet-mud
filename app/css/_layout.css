@@ -40,6 +40,11 @@
 
   height: 100%;
 
+  .app-body-container {
+    width: 80%;
+    margin: 3em auto 0;
+  }
+
   .app-title {
     margin: 0;
     padding: 10px;
