@@ -1,7 +1,7 @@
 @import "./themes";
 
-body {
-  @each $theme in $theme-names {
+@each $theme in $theme-names {
+  [data-role=app] {
     &.#{ $theme } {
       background-color: map-get($theme-map, "themes-#{ $theme }-1");
 
@@ -12,14 +12,33 @@ body {
       .menu-bar {
         background-color: map-get($theme-map, "themes-#{ $theme }-3");
       }
-
-      .#{ $theme }-theme-swatch {
-        background-color: map-get($theme-map, "themes-#{ $theme }-1");
-        border-color: map-get($theme-map, "themes-#{ $theme }-2");
-        color: map-get($theme-map, "themes-#{ $theme }-accent");
-      }
     }
   }
+
+  .#{ $theme }-theme-swatch {
+    background-color: map-get($theme-map, "themes-#{ $theme }-1");
+    border-color: map-get($theme-map, "themes-#{ $theme }-2");
+    color: map-get($theme-map, "themes-#{ $theme }-accent");
+
+/*  TODO: Maybe hover state should use a subtle flashing/pulsing animation?
+    &:hover {
+      background-color: lighten(map-get($theme-map, "themes-#{ $theme }-1"), 10%);
+      border-color: lighten(map-get($theme-map, "themes-#{ $theme }-2"), 10%);
+      color: lighten(map-get($theme-map, "themes-#{ $theme }-accent"), 10%);
+    }
+*/
+
+    &:active, &:focus {
+      background-color: map-get($theme-map, "themes-#{ $theme }-2");
+      border-color: map-get($theme-map, "themes-#{ $theme }-3");
+      color: map-get($theme-map, "themes-#{ $theme }-accent-2");
+    }
+  }
+}
+
+[data-role=app] {
+
+  height: 100%;
 
   .app-title {
     margin: 0;
@@ -55,10 +74,20 @@ body {
 
 }
 
+.theme-swatch-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .theme-swatch {
-  height: 50px;
-  width: 50px;
-  border: 0.5em ridged;
+  height: 6em;
+  width: 6em;
+  margin: 2em;
+
+  border-width: 1em;
+  border-style: outset;
+  cursor: pointer;
 }
 
 div.centered {

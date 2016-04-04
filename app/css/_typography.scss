@@ -1,6 +1,6 @@
 @import "./themes";
 
-body {
+[data-role=app] {
   @each $theme in $theme-names {
     &.#{ $theme } {
       div, span, h1, h2, h3, p {
