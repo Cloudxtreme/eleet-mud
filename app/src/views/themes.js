@@ -16,7 +16,7 @@ const Themes = React.createClass({
     return (
       <div>
         <h1>Pick a theme:</h1>
-        { themeNames.map((n) => <ThemeSwatch theme={ theme }/>) }
+        { themeNames.map((theme) => <ThemeSwatch theme={ theme }/>) }
       </div>
     );
   }

@@ -14,7 +14,10 @@ module.exports = {
   },
   devServer: {
     inline: true,
-    port: 7777
+    port: 7777,
+    historyApiFallback: {
+      index: 'index.html'
+    }
   },
   module: {
     preLoaders: [
