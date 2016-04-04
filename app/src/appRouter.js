@@ -9,6 +9,8 @@ let NewGame = require('./views/newGame');
 let Splash = require('./views/splash');
 let Game = require('./views/game');
 
+import Themes from './views/themes';
+
 // Some other module is messing with the jquery imports later on.
 window.$ = $;
 
@@ -20,11 +22,12 @@ $(document).ready(function(){
   Bootstrapper.bootstrap();
 
   render((
-    <Router history={browserHistory}>
-      <Route component={App}>
-        <Route path="/" component={Splash} />
-        <Route path="newGame" component={NewGame} />
-        <Route path="play" component={Game} />
+    <Router history={ browserHistory }>
+      <Route component={ App }>
+        <Route path="/" component={ Splash } />
+        <Route path="newGame" component={ NewGame } />
+        <Route path="play" component={ Game } />
+        <Route path="themes" component={ Themes } />
       </Route>
     </Router>
   ), $('[data-role=main-app-container]').get(0));

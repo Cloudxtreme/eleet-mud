@@ -12,14 +12,18 @@ body {
       .menu-bar {
         background-color: map-get($theme-map, "themes-#{ $theme }-3");
       }
+
+      .#{ $theme }-theme-swatch {
+        background-color: map-get($theme-map, "themes-#{ $theme }-1");
+        border-color: map-get($theme-map, "themes-#{ $theme }-2");
+        color: map-get($theme-map, "themes-#{ $theme }-accent");
+      }
     }
   }
 
   .app-title {
-    margin-top: 0;
+    margin: 0;
     padding: 10px;
-
-
   }
 
   .app-title-container {
@@ -37,6 +41,11 @@ body {
     }
   }
 
+  .menu-item-link {
+    display: inline;
+    margin: 0 0.5em;
+  }
+
   .menu-item-content {
     display: none;
   }
@@ -46,6 +55,11 @@ body {
 
 }
 
+.theme-swatch {
+  height: 50px;
+  width: 50px;
+  border: 0.5em ridged;
+}
 
 div.centered {
   margin: 0 auto;
