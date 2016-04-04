@@ -1,22 +1,32 @@
-$theme-names: brown indigo pink teal;
+$theme-names: brown orange indigo pink teal;
 $theme-map: (
   themes-brown-1: #795548,
   themes-brown-2: #5D4037,
   themes-brown-3: #3E2723,
-  themes-brown-accent: #FFAB91,
+  themes-brown-accent: #FFC107,
+  themes-brown-accent-2: #FFF59D,
+
+  themes-orange-1: #FFEB3B,
+  themes-orange-2: #FFD54F,
+  themes-orange-3: #F9A825,
+  themes-orange-accent: #00ACC1,
+  themes-orange-accent-2: #00897B,
 
   themes-indigo-1: #3F51B5,
   themes-indigo-2: #303F9F,
   themes-indigo-3: #1A237E,
-  themes-indigo-accent: #FF4081,
+  themes-indigo-accent: #EEFF41,
+  themes-indigo-accent-2: #FFAB40,
 
   themes-pink-1: #E91E63,
   themes-pink-2: #C2185B,
   themes-pink-3: #880E4F,
   themes-pink-accent: #FFD740,
+  themes-pink-accent-2: #FFD740,
 
   themes-teal-1: #009688,
   themes-teal-2: #00796B,
   themes-teal-3: #004D40,
   themes-teal-accent: #FF5252,
+  themes-teal-accent-2: #FF5252
 );

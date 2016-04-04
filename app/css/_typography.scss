@@ -7,19 +7,27 @@ body {
         color: #eee;
       }
 
-      a {
+      .app-title, .menu-item-link, a {
         color: map-get($theme-map, "themes-#{ $theme }-accent");
 
+        transition: color 1s ease;
+        -webkit-transition: color 1s ease;
+
         &[data-active], &:hover {
-          color: lighten(map-get($theme-map, "themes-#{ $theme }-accent"), 20%);
+          color: map-get($theme-map, "themes-#{ $theme }-accent-2");
+          /*color: adjust-hue(lighten(map-get($theme-map, "themes-#{ $theme }-accent"), 10%), 15deg);*/
         }
       }
+
     }
   }
 
   a {
-    transition: 1s;
-    -webkit-transition: 1s;
+    font-weight: bold;
+
+    &:hover, &:active, &:focus {
+      text-decoration: none;
+    }
   }
 
   h1, h2, h3 {

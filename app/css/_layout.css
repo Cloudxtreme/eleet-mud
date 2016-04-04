@@ -8,13 +8,41 @@ body {
       .app-title {
         background-color: map-get($theme-map, "themes-#{ $theme }-2");
       }
+
+      .menu-bar {
+        background-color: map-get($theme-map, "themes-#{ $theme }-3");
+      }
     }
   }
 
   .app-title {
     margin-top: 0;
     padding: 10px;
+
+
   }
+
+  .app-title-container {
+    &:hover .menu-bar {
+      display: block;
+    }
+  }
+
+  .menu-bar {
+    text-align: center;
+    display: none;
+
+    &:hover {
+      display: block;
+    }
+  }
+
+  .menu-item-content {
+    display: none;
+  }
+
+  transition: 1s;
+  -webkit-transition: 1s;
 
 }
 

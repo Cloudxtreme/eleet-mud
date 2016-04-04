@@ -21,8 +21,8 @@ $(document).ready(function(){
 
   render((
     <Router history={browserHistory}>
-      <Route path="/" component={App}>
-        <Route path="splash" component={Splash} />
+      <Route component={App}>
+        <Route path="/" component={Splash} />
         <Route path="newGame" component={NewGame} />
         <Route path="play" component={Game} />
       </Route>
