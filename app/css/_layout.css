@@ -47,17 +47,24 @@
 
   .app-title-container {
     &:hover .menu-bar {
-      display: block;
+      padding: 15px;
+    }
+
+    &:hover .menu-bar, .menu-bar:hover {
+      max-height: 7em;
     }
   }
 
   .menu-bar {
     text-align: center;
-    display: none;
 
-    &:hover {
-      display: block;
-    }
+    width: 100%;
+    max-height: 0;
+    position: absolute;
+    overflow: hidden;
+
+    transition-duration: 2s;
+    transition-timing-function: ease;
   }
 
   .menu-item-link {

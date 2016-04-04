@@ -1,6 +1,9 @@
 import { Link } from 'react-router';
 let React = require('react');
 
+// TODO, could have an alt font or alt way to display when hovering
+// over menu items...Like bigger, or with squiggles coming off the words
+
 const MenuItem = React.createClass({
   render() {
     return (
